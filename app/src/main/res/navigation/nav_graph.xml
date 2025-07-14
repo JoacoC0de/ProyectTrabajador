@@ -9,20 +9,17 @@
         android:name="com.example.proyecttrabajador.ui.login.LoginFragment"
         android:label="Iniciar Sesión">
         <action
-            android:id="@+id/action_loginFragment_to_citasFragment"
-            app:destination="@id/citasFragment" />
+            android:id="@+id/action_loginFragment_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_occupationFragment"
-            app:destination="@id/occupationFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/citasFragment"
-        android:name="com.example.proyecttrabajador.ui.citas.CitasFragment"
-        android:label="Citas" />
+        android:id="@+id/chatsFragment"
+        android:name="com.example.proyecttrabajador.ui.chats.ChatsFragment"
+        android:label="Chats" />
 
     <fragment
         android:id="@+id/registerFragment"

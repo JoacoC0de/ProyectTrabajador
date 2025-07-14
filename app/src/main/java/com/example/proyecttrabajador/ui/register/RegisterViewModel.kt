@@ -20,13 +20,18 @@ class RegisterViewModel(
     private val _registerResult = MutableLiveData<Result<RegisterResponse>>()
     val registerResult: LiveData<Result<RegisterResponse>> = _registerResult
 
-
     fun register(name: String, lastName: String, email: String, password: String) {
         viewModelScope.launch {
             try {
                 val response = repository.register(RegisterRequest(name, lastName, email, password))
                 if (response.isSuccessful && response.body() != null) {
+                    // Guardar el token recibido
+                    val token = response.body()?.token
+                    if (token != null) {
+                        TokenProvider.token = token
+                        android.util.Log.d("RegisterViewModel", "Token guardado: $token")
 
+                    }
                     _registerResult.value = Result.success(response.body()!!)
                 } else {
                     val errorMsg = response.errorBody()?.string() ?: "Error al registrar"

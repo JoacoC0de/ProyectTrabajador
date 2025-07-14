@@ -38,8 +38,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         viewModel.loginResult.observe(viewLifecycleOwner) { result ->
             result.onSuccess {
-                findNavController().navigate(R.id.action_loginFragment_to_occupationFragment)
-            }
+                findNavController().navigate(R.id.action_loginFragment_to_chatsFragment)            }
             result.onFailure {
                 Toast.makeText(requireContext(), "Error al iniciar sesión", Toast.LENGTH_SHORT).show()
             }
